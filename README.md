@@ -11,9 +11,12 @@ setup with nginx.
 This is useful when you need to set up nginx as a reverse proxy for an
 application.
 
+
+
 ## Installation
 1. [Install docker-compose](https://docs.docker.com/compose/install/#install-compose).
 2. [Install Certbot](https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal).
+2. When using Cloudflare as CDN, enable Overview -> Quick Actions -> Development Mode, and select SSL/TLS -> SSL/TLS encryption mode -> Off (not secure).
 3. Clone this repository: `git clone git@github.com:homeryan/nginx-certbot.git .`
 3. Modify configuration:
 - Add domains and email addresses to init-letsencrypt.sh
@@ -24,8 +27,14 @@ application.
         ./init-letsencrypt.sh
 
 5. Run the server:
+    ```
+    docker-compose up -d --remove-orphans
+    ```
+    
+5. When using Cloudflare as CDN, disable Overview -> Quick Actions -> Development Mode, and select SSL/TLS -> SSL/TLS encryption mode -> Full.
 
-        docker-compose up -d --remove-orphans
+    
 
 ## License
+
 All code in this repository is licensed under the terms of the `MIT License`. For further information please refer to the `LICENSE` file.
