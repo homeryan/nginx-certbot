@@ -1,7 +1,9 @@
 # Boilerplate for nginx with Let’s Encrypt on docker-compose
 
 > This repository is accompanied by a [step-by-step guide on how to
-set up nginx and Let’s Encrypt with Docker](https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71).
+> set up nginx and Let’s Encrypt with Docker](https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71).
+>
+> This repository is forked from https://github.com/wmnnd/nginx-certbot
 
 `init-letsencrypt.sh` fetches and ensures the renewal of a Let’s
 Encrypt certificate for one or multiple domains in a docker-compose
@@ -12,7 +14,7 @@ application.
 ## Installation
 1. [Install docker-compose](https://docs.docker.com/compose/install/#install-compose).
 
-2. Clone this repository: `git clone https://github.com/wmnnd/nginx-certbot.git .`
+2. Clone this repository: `git clone git@github.com:homeryan/nginx-certbot.git .`
 
 3. Modify configuration:
 - Add domains and email addresses to init-letsencrypt.sh
@@ -24,10 +26,7 @@ application.
 
 5. Run the server:
 
-        docker-compose up
-
-## Got questions?
-Feel free to post questions in the comment section of the [accompanying guide](https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
+        docker-compose up -d --remove-orphans
 
 ## License
 All code in this repository is licensed under the terms of the `MIT License`. For further information please refer to the `LICENSE` file.
