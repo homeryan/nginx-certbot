@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Must run as root
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root."
+  exit
+fi
+
 if ! [ -x "$(command -v docker-compose)" ]; then
   echo 'Error: docker-compose is not installed.' >&2
   exit 1
